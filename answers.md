@@ -50,3 +50,34 @@
 - One record per student per day.
 - No unnecessary duplicates.
 - Clearly handled or flagged missing class information.
+
+# Scenario 3 — Hospital Appointments Data
+
+## Source
+- Appointment data coming from three different sources:
+  - A web booking system.
+  - A receptionist-managed spreadsheet.
+  - An internal database export.
+
+## Problems
+- Different field names for the same concept (e.g., patient_id vs customer_id).
+- Appointment status values are inconsistent (e.g., done, Done, finished).
+- Some rows are missing doctor names.
+- Duplicate appointments may exist across systems.
+- Data structure may vary depending on the source system.
+
+## Possible Transformations
+- Map and standardize field names (e.g., unify patient_id and customer_id into patient_id).
+- Normalize appointment status values into a consistent set (e.g., Completed, Cancelled, Scheduled).
+- Merge all three datasets into a unified appointments table.
+- Remove duplicate appointments using a combination of patient ID, date, and time.
+- Handle missing doctor names by flagging incomplete records or enriching from another source.
+- Validate data consistency and integrity.
+
+## Expected Output
+- A single consolidated appointments dataset.
+- Consistent field naming.
+- Standardized appointment status values.
+- No duplicate appointments.
+- Complete or clearly flagged records for missing information.
+- A clean structure ready for reporting or analytics.
