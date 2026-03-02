@@ -22,3 +22,31 @@
 - No unnecessary duplicates.
 - Valid and consistent amount values.
 - Clean customer name formatting.
+
+# Scenario 2 — School Attendance Export
+
+## Source
+- Two attendance export files generated weekly from two different school systems (likely CSV or Excel files).
+
+## Problems
+- Different column names for the same information (e.g., student_name vs name).
+- Some class names are missing.
+- Dates are written in different formats.
+- Some students appear more than once on the same day.
+- Data comes from two separate systems, which may create inconsistencies.
+
+## Possible Transformations
+- Standardize column names (e.g., rename student_name and name to a unified column such as student_name).
+- Merge the two datasets into a single unified attendance table.
+- Normalize date formats into a consistent format (e.g., YYYY-MM-DD).
+- Remove duplicate records for the same student on the same date.
+- Handle missing class names by filling them if possible or flagging them for review.
+- Validate data consistency across both systems.
+
+## Expected Output
+- A single consolidated attendance dataset.
+- Consistent column naming.
+- Standardized date format.
+- One record per student per day.
+- No unnecessary duplicates.
+- Clearly handled or flagged missing class information.
