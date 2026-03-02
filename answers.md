@@ -82,12 +82,34 @@
 - Complete or clearly flagged records for missing information.
 - A clean structure ready for reporting or analytics.
 
-# Reflection
+# Scenario 4 — Retail Product Data
 
-A data pipeline, in my own words, is a structured process that moves data from a raw state to a clean and usable state. It is not only about writing code, but about understanding where data comes from, what problems it has, and what transformations are necessary to make it reliable for analysis or decision-making.
+## Source
+- Product data collected from three different suppliers.
+- One supplier provides data in JSON format.
+- Another supplier provides data in CSV format.
+- A third supplier provides structured product files (likely CSV or Excel).
 
-Raw data is often not ready for analysis because it is inconsistent, incomplete, or duplicated. Different systems store data in different formats, use different field names, or represent the same information in different ways. Without cleaning and standardizing the data, any analysis based on it could lead to incorrect conclusions.
+## Problems
+- Prices are expressed in different currencies.
+- Product categories are written inconsistently across suppliers.
+- Some product names contain extra symbols or unusual formatting.
+- Some products are duplicated with slightly different names.
+- Data formats differ (JSON vs CSV), making integration more complex.
 
-The easiest scenario for me was the Online Orders CSV because the problems were clear and common, such as duplicates and inconsistent formatting. The most challenging scenario was the Retail Product Data because it required thinking about multiple suppliers, different file formats, currency conversion, and product matching. It involved more complex integration logic.
+## Possible Transformations
+- Convert all data formats into a unified structure (e.g., transform JSON into tabular format).
+- Standardize column names across suppliers.
+- Convert all prices into a single base currency.
+- Normalize product categories into a predefined category list.
+- Clean product names by removing extra symbols and fixing formatting.
+- Detect and merge duplicate products using product matching logic.
+- Combine all supplier data into a unified product dataset.
 
-One important thing I learned from this exercise is that data engineering starts with thinking clearly about structure and consistency. Before writing any code, it is essential to understand the data flow, the transformations required, and the final expected output.
+## Expected Output
+- A single consolidated product dataset.
+- Standardized categories.
+- Prices expressed in one consistent currency.
+- Clean and formatted product names.
+- No duplicate products.
+- A structured dataset ready for inventory management or analytics.
